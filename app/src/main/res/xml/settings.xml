@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/api">
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="developer_id"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/developer_id" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="developer_key"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/developer_key" />
+    </PreferenceCategory>
+</PreferenceScreen>
