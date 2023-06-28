@@ -9,8 +9,9 @@
     <string name="settings">Settings</string>
     <string name="about">About</string>
 
-    <string name="api">API</string>
+    <string name="fossptv_api">FossPTV API</string>
+    <string name="instance_url">Instance URL</string>
+    <string name="fossptv_api_instance_url_default">https://fossptv.nomy.sh/api/</string>
 
-    <string name="developer_id">Developer ID</string>
-    <string name="developer_key">Developer Key</string>
+    <string name="invalid_url">Invalid URL</string>
 </resources>

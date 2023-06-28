@@ -1,12 +1,10 @@
 package sh.nomy.fossptv.api.ptv.models
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.fasterxml.jackson.annotation.JsonProperty
 
-@JsonClass(generateAdapter = true)
 data class SearchModel(
-    @Json(name = "stops") val stops: List<StopModel>,
-    @Json(name = "routes") val routes: List<RouteModel>,
-    @Json(name = "outlets") val outlets: List<OutletModel>,
-    @Json(name = "status") val status: StatusModel
+    @JsonProperty("stops") val stops: List<StopModel>? = null,
+    @JsonProperty("routes") val routes: List<RouteModel>? = null,
+    @JsonProperty("outlets") val outlets: List<OutletModel>? = null,
+    @JsonProperty("status") val status: StatusModel? = null
 )

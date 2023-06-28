@@ -1,24 +1,22 @@
 package sh.nomy.fossptv.api.ptv.models
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.fasterxml.jackson.annotation.JsonProperty
 
-@JsonClass(generateAdapter = true)
 data class OutletModel(
-    @Json(name = "outlet_distance") val outletDistance: Int,
-    @Json(name = "outlet_slid_spid") val outletSlidSpid: String,
-    @Json(name = "outlet_name") val outletName: String,
-    @Json(name = "outlet_business") val outletBusiness: String,
-    @Json(name = "outlet_latitude") val outletLatitude: Float,
-    @Json(name = "outlet_longitude") val outletLongitude: Float,
-    @Json(name = "outlet_suburb") val outletSuburb: String,
-    @Json(name = "outlet_postcode") val outletPostcode: Int,
-    @Json(name = "outlet_business_hour_mon") val outletBusinessHourMon: String,
-    @Json(name = "outlet_business_hour_tue") val outletBusinessHourTue: String,
-    @Json(name = "outlet_business_hour_wed") val outletBusinessHourWed: String,
-    @Json(name = "outlet_business_hour_thur") val outletBusinessHourThur: String,
-    @Json(name = "outlet_business_hour_fri") val outletBusinessHourFri: String,
-    @Json(name = "outlet_business_hour_sat") val outletBusinessHourSat: String,
-    @Json(name = "outlet_business_hour_sun") val outletBusinessHourSun: String,
-    @Json(name = "outlet_notes") val outletNotes: String
+    @JsonProperty("outlet_distance") val outletDistance: Int? = null,
+    @JsonProperty("outlet_slid_spid") val outletSlidSpid: String? = null,
+    @JsonProperty("outlet_name") val outletName: String? = null,
+    @JsonProperty("outlet_business") val outletBusiness: String? = null,
+    @JsonProperty("outlet_latitude") val outletLatitude: Float? = null,
+    @JsonProperty("outlet_longitude") val outletLongitude: Float? = null,
+    @JsonProperty("outlet_suburb") val outletSuburb: String? = null,
+    @JsonProperty("outlet_postcode") val outletPostcode: Int? = null,
+    @JsonProperty("outlet_business_hour_mon") val outletBusinessHourMon: String? = null,
+    @JsonProperty("outlet_business_hour_tue") val outletBusinessHourTue: String? = null,
+    @JsonProperty("outlet_business_hour_wed") val outletBusinessHourWed: String? = null,
+    @JsonProperty("outlet_business_hour_thur") val outletBusinessHourThur: String? = null,
+    @JsonProperty("outlet_business_hour_fri") val outletBusinessHourFri: String? = null,
+    @JsonProperty("outlet_business_hour_sat") val outletBusinessHourSat: String? = null,
+    @JsonProperty("outlet_business_hour_sun") val outletBusinessHourSun: String? = null,
+    @JsonProperty("outlet_notes") val outletNotes: String? = null
 )

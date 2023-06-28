@@ -1,10 +1,8 @@
 package sh.nomy.fossptv.api.ptv.models
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.fasterxml.jackson.annotation.JsonProperty
 
-@JsonClass(generateAdapter = true)
 data class StatusModel(
-    @Json(name = "version") val version: String,
-    @Json(name = "health") val health: Int
+    @JsonProperty("version") val version: String? = null,
+    @JsonProperty("health") val health: Int? = null
 )

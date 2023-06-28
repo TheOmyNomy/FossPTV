@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/api">
+    <PreferenceCategory android:title="@string/fossptv_api">
 
         <EditTextPreference
-            android:defaultValue=""
-            android:key="developer_id"
+            android:defaultValue="@string/fossptv_api_instance_url_default"
+            android:key="fossptv_api_instance_url"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:title="@string/developer_id" />
-
-        <EditTextPreference
-            android:defaultValue=""
-            android:key="developer_key"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/developer_key" />
+            android:title="@string/instance_url" />
     </PreferenceCategory>
 </PreferenceScreen>
