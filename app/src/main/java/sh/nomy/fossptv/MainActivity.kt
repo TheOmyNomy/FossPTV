@@ -6,13 +6,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.fragment.NavHostFragment
 import androidx.preference.PreferenceManager
 import com.google.android.material.navigation.NavigationView
 import sh.nomy.fossptv.api.ptv.PtvClient
-import sh.nomy.fossptv.fragments.AboutFragment
-import sh.nomy.fossptv.fragments.HomeFragment
-import sh.nomy.fossptv.fragments.SearchFragment
-import sh.nomy.fossptv.fragments.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawer: DrawerLayout
@@ -43,29 +40,30 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
+        val navigationHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navigation_host_fragment) as NavHostFragment
+
+        val navigationController = navigationHostFragment.navController
+
         val navigationView: NavigationView = findViewById(R.id.drawer_layout)
 
         // Handle when an item in the hamburger menu is selected.
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.drawer_home -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, HomeFragment()).commit()
+                    navigationController.navigate(R.id.homeFragment)
                 }
 
                 R.id.drawer_search -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, SearchFragment()).commit()
+                    navigationController.navigate(R.id.searchFragment)
                 }
 
                 R.id.drawer_settings -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, SettingsFragment()).commit()
+                    navigationController.navigate(R.id.settingsFragment)
                 }
 
                 R.id.drawer_about -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, AboutFragment()).commit()
+                    navigationController.navigate(R.id.aboutFragment)
                 }
             }
 
@@ -73,12 +71,26 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // Open the home fragment on launch.
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment()).commit()
+        // Update the selected drawer item when the current fragment is changed by a
+        // method other than the drawer itself (i.e. when the user navigates up / back).
+        navigationController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment -> {
+                    navigationView.setCheckedItem(R.id.drawer_home)
+                }
 
-            navigationView.setCheckedItem(R.id.drawer_home)
+                R.id.searchFragment -> {
+                    navigationView.setCheckedItem(R.id.drawer_search)
+                }
+
+                R.id.settingsFragment -> {
+                    navigationView.setCheckedItem(R.id.drawer_settings)
+                }
+
+                R.id.aboutFragment -> {
+                    navigationView.setCheckedItem(R.id.drawer_about)
+                }
+            }
         }
     }
 
