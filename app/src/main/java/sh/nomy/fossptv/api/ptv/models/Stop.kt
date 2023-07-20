@@ -2,11 +2,11 @@ package sh.nomy.fossptv.api.ptv.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class StopModel(
+data class Stop(
     @JsonProperty("stop_distance") val stopDistance: Int? = null,
     @JsonProperty("stop_suburb") val stopSuburb: String? = null,
     @JsonProperty("route_type") val routeType: Int? = null,
-    @JsonProperty("routes") val routes: List<RouteModel>? = null,
+    @JsonProperty("routes") val routes: List<Route>? = null,
     @JsonProperty("stop_latitude") val stopLatitude: Float? = null,
     @JsonProperty("stop_longitude") val stopLongitude: Float? = null,
     @JsonProperty("stop_sequence") val stopSequence: Int? = null,

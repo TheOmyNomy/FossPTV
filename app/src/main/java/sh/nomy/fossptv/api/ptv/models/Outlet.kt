@@ -2,7 +2,7 @@ package sh.nomy.fossptv.api.ptv.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class OutletModel(
+data class Outlet(
     @JsonProperty("outlet_distance") val outletDistance: Int? = null,
     @JsonProperty("outlet_slid_spid") val outletSlidSpid: String? = null,
     @JsonProperty("outlet_name") val outletName: String? = null,
